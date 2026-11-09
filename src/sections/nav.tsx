@@ -18,6 +18,14 @@ function Wordmark() {
 
 export function Nav() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     document.body.classList.toggle("menu-open", open);
@@ -31,7 +39,12 @@ export function Nav() {
   }, [open]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-ink">
+    <header
+      className={
+        "fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 " +
+        (scrolled || open ? "border-line bg-ink" : "border-transparent bg-transparent")
+      }
+    >
       <div className="shell flex h-16 items-center justify-between">
         <a href="#uvod" className="text-paper" aria-label="MAGNET BMW, úvod" onClick={() => setOpen(false)}>
           <Wordmark />
