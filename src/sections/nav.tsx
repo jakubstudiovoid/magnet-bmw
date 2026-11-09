@@ -17,15 +17,7 @@ function Wordmark() {
 }
 
 export function Nav() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     document.body.classList.toggle("menu-open", open);
@@ -39,14 +31,9 @@ export function Nav() {
   }, [open]);
 
   return (
-    <header
-      className={
-        "fixed inset-x-0 top-0 z-50 border-b transition-colors duration-500 " +
-        (scrolled || open ? "border-paper/10 bg-ink/80 backdrop-blur-md" : "border-transparent bg-transparent")
-      }
-    >
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-ink">
       <div className="shell flex h-16 items-center justify-between">
-        <a href="#uvod" className="text-paper" aria-label="MAGNET BMW, úvod">
+        <a href="#uvod" className="text-paper" aria-label="MAGNET BMW, úvod" onClick={() => setOpen(false)}>
           <Wordmark />
         </a>
         <nav className="hidden items-center gap-7 md:flex" aria-label="Hlavní">
@@ -61,36 +48,38 @@ export function Nav() {
         </nav>
         <button
           type="button"
-          className="btn btn-ghost md:hidden"
+          className="menu-toggle md:hidden"
           aria-expanded={open}
           aria-controls="menu-mobil"
+          aria-label={open ? "Zavřít menu" : "Otevřít menu"}
           onClick={() => setOpen((value) => !value)}
         >
-          {open ? "Zavřít" : "Menu"}
+          <span className="burger" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+          </span>
         </button>
       </div>
-      {open ? (
-        <div
-          id="menu-mobil"
-          className="fixed inset-0 top-16 z-40 flex flex-col bg-ink px-6 pt-10 md:hidden"
-        >
-          <nav className="flex flex-col gap-5" aria-label="Mobilní">
-            {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="headline text-paper"
-                onClick={() => setOpen(false)}
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-          <a href={SITE.phoneHref} className="btn btn-fill mt-10 w-fit">
-            Zavolat
-          </a>
+      <div id="menu-mobil" className={open ? "mobile-menu is-open" : "mobile-menu"} aria-hidden={!open}>
+        <nav aria-label="Mobilní">
+          {links.map((link, index) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="mobile-link"
+              style={{ transitionDelay: open ? `${90 + index * 70}ms` : "0ms" }}
+              onClick={() => setOpen(false)}
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+        <div className="mobile-contact">
+          <a href={SITE.phoneHref}>{SITE.phoneDisplay}</a>
+          <a href={SITE.emailHref}>{SITE.email}</a>
         </div>
-      ) : null}
+      </div>
     </header>
   );
 }

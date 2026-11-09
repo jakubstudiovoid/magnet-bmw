@@ -222,6 +222,7 @@
 
   .btn-ghost:hover {
     border-color: var(--color-paper);
+    background: color-mix(in srgb, var(--color-paper) 8%, transparent);
   }
 
   .btn-ink {
@@ -300,7 +301,178 @@
   }
 
   .hero {
-    min-height: min(86svh, 44rem);
+    min-height: 100svh;
+  }
+
+  @media (min-width: 768px) {
+    .hero {
+      min-height: min(86svh, 44rem);
+    }
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--color-paper);
+  }
+
+  .burger {
+    position: relative;
+    width: 1.3rem;
+    height: 0.72rem;
+  }
+
+  .burger span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background: currentColor;
+    transition:
+      top 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.25s ease;
+  }
+
+  .burger span:nth-child(1) {
+    top: 0;
+  }
+
+  .burger span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .burger span:nth-child(3) {
+    top: 100%;
+  }
+
+  .menu-toggle[aria-expanded="true"] .burger span:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .menu-toggle[aria-expanded="true"] .burger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle[aria-expanded="true"] .burger span:nth-child(3) {
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+
+  .mobile-menu {
+    position: fixed;
+    inset: 4rem 0 0;
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 1.35rem 1.5rem;
+    background: var(--color-ink);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+      visibility 0.45s;
+  }
+
+  .mobile-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .mobile-link {
+    display: block;
+    padding: 1.05rem 0;
+    border-bottom: 1px solid var(--color-line);
+    color: var(--color-paper);
+    font-size: clamp(1.85rem, 8vw, 2.45rem);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+      color 0.4s ease;
+  }
+
+  .mobile-menu.is-open .mobile-link {
+    opacity: 1;
+    transform: none;
+  }
+
+  .mobile-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-top: auto;
+    padding-top: 1.5rem;
+  }
+
+  .mobile-contact a {
+    width: fit-content;
+    color: var(--color-paper);
+    text-decoration: none;
+  }
+
+  .mobile-contact a:first-child {
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+
+  .mobile-contact a:last-child {
+    font-size: 0.92rem;
+    color: color-mix(in srgb, var(--color-paper) 62%, transparent);
+  }
+
+  @media (min-width: 768px) {
+    .mobile-menu {
+      display: none;
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .mobile-link:hover {
+      color: var(--color-accent);
+    }
+  }
+
+  .service-icon {
+    color: var(--color-paper);
+    transition: color 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .service-row:hover .service-icon {
+      color: var(--color-accent);
+    }
+  }
+
+  .js .reveal,
+  .js .fade-up {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .js .reveal.is-in,
+  .js .fade-up.is-in {
+    opacity: 1;
+    transform: none;
   }
 
   .meta-rail {
@@ -364,9 +536,6 @@
   }
 
   .mask-in,
-  .fade-up,
-  .reveal,
-  .js .reveal,
   .wipe img,
   .js .wipe img {
     opacity: 1;
@@ -376,30 +545,6 @@
 
   .hero-photo {
     filter: contrast(1.04) brightness(1.06);
-  }
-
-  .call-dock {
-    position: fixed;
-    right: 1rem;
-    bottom: 1rem;
-    z-index: 40;
-    display: inline-flex;
-    align-items: center;
-    min-height: 2.75rem;
-    padding: 0 1rem;
-    background: var(--color-accent);
-    color: var(--color-paper);
-    text-decoration: none;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  @media (min-width: 768px) {
-    .call-dock {
-      display: none;
-    }
   }
 }
 
@@ -411,6 +556,7 @@
   .mask-in,
   .fade-up,
   .js .reveal,
+  .js .fade-up,
   .js .wipe img,
   .hero-photo,
   .photo-img {

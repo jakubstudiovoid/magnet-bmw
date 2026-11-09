@@ -34,20 +34,9 @@ export function Hero() {
             </span>
           </span>
         </h1>
-        <div
-          className="fade-up mt-6 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between"
-          style={{ animationDelay: "0.4s" }}
-        >
-          <p className="max-w-sm text-base text-paper/80 md:text-lg">{SITE.claim}</p>
-          <div className="flex flex-col gap-2 sm:flex-row">
-            <a href={SITE.phoneHref} className="btn btn-fill">
-              Objednat servis
-            </a>
-            <a href="#sluzby" className="btn btn-ghost">
-              Služby
-            </a>
-          </div>
-        </div>
+        <p className="fade-up mt-6 max-w-sm text-base text-paper/80 md:text-lg" style={{ animationDelay: "0.4s" }}>
+          {SITE.claim}
+        </p>
         <dl className="meta-rail">
           <div>
             <dt className="kicker">Adresa</dt>
@@ -77,6 +66,14 @@ export function Hero() {
             </dd>
           </div>
         </dl>
+        <div className="fade-up mt-8 flex flex-col gap-2 sm:flex-row" style={{ animationDelay: "0.5s" }}>
+          <a href={SITE.phoneHref} className="btn btn-fill">
+            Objednat servis
+          </a>
+          <a href="#sluzby" className="btn btn-ghost">
+            Služby
+          </a>
+        </div>
       </div>
     </section>
   );

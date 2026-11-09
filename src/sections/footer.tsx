@@ -3,7 +3,7 @@ import { WordmarkLockup } from "@/sections/nav";
 
 export function Footer() {
   return (
-    <footer className="border-t border-line bg-ink pb-24 md:pb-0">
+    <footer className="border-t border-line bg-ink">
       <div className="shell py-12 md:py-16">
         <div className="grid gap-10 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] md:items-end md:gap-16">
           <div>
@@ -41,13 +41,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  );
-}
-
-export function CallDock() {
-  return (
-    <a className="call-dock" href={SITE.phoneHref}>
-      Zavolat
-    </a>
   );
 }

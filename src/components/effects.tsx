@@ -30,7 +30,7 @@ export function SiteEffects() {
     };
     lenis.on("scroll", onScroll);
 
-    const nodes = document.querySelectorAll<HTMLElement>(".reveal, .wipe");
+    const nodes = document.querySelectorAll<HTMLElement>(".reveal, .fade-up, .wipe");
     const io = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {

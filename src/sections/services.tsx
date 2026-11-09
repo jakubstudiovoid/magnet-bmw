@@ -41,11 +41,11 @@ export function Services() {
             return (
               <li
                 key={service.title}
-                className="group reveal grid grid-cols-[1.5rem_1fr] items-start gap-x-4 gap-y-1 border-b border-line py-5 md:grid-cols-[1.5rem_minmax(0,18rem)_1fr] md:items-center md:gap-8 md:py-6"
+                className="service-row group reveal grid grid-cols-[1.5rem_1fr] items-center gap-x-4 gap-y-1 border-b border-line py-5 md:grid-cols-[1.5rem_minmax(0,18rem)_1fr] md:gap-8 md:py-6"
                 style={{ transitionDelay: `${index * 40}ms` }}
               >
                 <Icon
-                  className="mt-0.5 size-5 text-paper transition-colors duration-[0.7s] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:text-accent motion-reduce:transition-none md:mt-0"
+                  className="service-icon row-span-2 size-5 md:row-span-1"
                   strokeWidth={1.5}
                   aria-hidden="true"
                 />
