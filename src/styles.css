@@ -287,12 +287,12 @@
     inset: 0;
   }
 
-  @media (hover: hover) and (pointer: fine) {
-    .photo:not(.hero-photo) .photo-img {
-      filter: grayscale(1) contrast(1.18);
-      transition: filter 1s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+  .photo:not(.hero-photo) .photo-img {
+    filter: grayscale(1) contrast(1.18);
+    transition: filter 1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
+  @media (hover: hover) and (pointer: fine) {
     .photo:not(.hero-photo):hover .photo-img,
     :hover > .photo:not(.hero-photo) .photo-img,
     :focus-within > .photo:not(.hero-photo) .photo-img {
@@ -373,7 +373,7 @@
     z-index: 40;
     display: flex;
     flex-direction: column;
-    padding: 0.5rem 1.35rem 1.5rem;
+    padding: 1.5rem 1.125rem 1.75rem;
     background: var(--color-ink);
     opacity: 0;
     visibility: hidden;
@@ -389,14 +389,24 @@
     pointer-events: auto;
   }
 
+  .mobile-menu nav {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.15rem;
+    padding-bottom: 4.5rem;
+  }
+
   .mobile-link {
-    display: block;
-    padding: 1.05rem 0;
-    border-bottom: 1px solid var(--color-line);
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.85rem 0;
     color: var(--color-paper);
-    font-size: clamp(1.85rem, 8vw, 2.45rem);
+    font-size: clamp(2rem, 8.5vw, 2.65rem);
     font-weight: 500;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.045em;
     line-height: 1;
     text-decoration: none;
     opacity: 0;
@@ -405,6 +415,13 @@
       opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1),
       transform 0.55s cubic-bezier(0.4, 0, 0.2, 1),
       color 0.4s ease;
+  }
+
+  .mobile-index {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    color: var(--color-mist);
   }
 
   .mobile-menu.is-open .mobile-link {
@@ -416,8 +433,8 @@
     display: flex;
     flex-direction: column;
     gap: 0.35rem;
-    margin-top: auto;
-    padding-top: 1.5rem;
+    padding-top: 1.15rem;
+    border-top: 1px solid var(--color-line);
   }
 
   .mobile-contact a {
@@ -535,6 +552,15 @@
     display: block;
   }
 
+  .js .wipe:not(.is-in) {
+    opacity: 0;
+  }
+
+  .js .wipe.is-in {
+    opacity: 1;
+    transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1) 0.85s;
+  }
+
   .mask-in,
   .wipe img,
   .js .wipe img {
@@ -557,6 +583,7 @@
   .fade-up,
   .js .reveal,
   .js .fade-up,
+  .js .wipe,
   .js .wipe img,
   .hero-photo,
   .photo-img {

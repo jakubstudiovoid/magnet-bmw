@@ -84,6 +84,7 @@ export function Nav() {
               style={{ transitionDelay: open ? `${90 + index * 70}ms` : "0ms" }}
               onClick={() => setOpen(false)}
             >
+              <span className="mobile-index">0{index + 1}</span>
               {link.label}
             </a>
           ))}
