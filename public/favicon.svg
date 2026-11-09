@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="MAGNET BMW">
+  <rect width="32" height="32" rx="6" fill="#0A0A0A"/>
+  <path fill="#FAFAFA" d="M7.2 25.6V14.4A8.8 8.8 0 0 1 24.8 14.4V25.6H20.4V14.4A4.4 4.4 0 0 0 11.6 14.4V25.6Z"/>
+  <rect x="7.2" y="21.8" width="4.4" height="3.8" fill="#1C69D4"/>
+</svg>

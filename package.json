@@ -1,0 +1,17 @@
+{
+  "name": "magnet-bmw",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@fontsource/manrope": "^5.2.8",
+    "@tailwindcss/vite": "^4.1.16",
+    "astro": "^5.15.0",
+    "lenis": "^1.3.11",
+    "tailwindcss": "^4.1.16"
+  }
+}
