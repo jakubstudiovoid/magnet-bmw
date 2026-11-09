@@ -68,7 +68,7 @@ export function Hero() {
             </dd>
           </div>
           <div>
-            <dt className="kicker">Telefon</dt>
+            <dt className="kicker">Kontakt</dt>
             <dd>
               <a href={SITE.phoneHref}>{SITE.phoneDisplay}</a>
               <a className="mt-0.5 block text-xs font-normal tracking-normal text-paper/70" href={SITE.emailHref}>
