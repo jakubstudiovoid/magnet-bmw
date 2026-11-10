@@ -22,30 +22,22 @@ export function Hero() {
         <p className="fade-up kicker" style={{ transitionDelay: "0.05s" }}>
           Autoservis · {SITE.city}
         </p>
-        <h1 className="display mt-4">
-          <span className="mask">
-            <span className="mask-in" style={{ animationDelay: "0.16s" }}>
-              MAGNET
-            </span>
-          </span>
-          <span className="mask">
-            <span className="mask-in display-line" style={{ animationDelay: "0.26s" }}>
-              BMW
-            </span>
-          </span>
+        <h1 className="display fade-up mt-4" style={{ transitionDelay: "0.14s" }}>
+          <span className="mask">MAGNET</span>
+          <span className="mask display-line">BMW</span>
         </h1>
-        <p className="fade-up mt-6 max-w-sm text-base text-paper/80 md:text-lg" style={{ transitionDelay: "0.16s" }}>
+        <p className="fade-up mt-6 max-w-sm text-base text-paper/80 md:text-lg" style={{ transitionDelay: "0.24s" }}>
           {SITE.claim}
         </p>
         <dl className="meta-rail">
-          <div>
+          <div className="fade-up" style={{ transitionDelay: "0.34s" }}>
             <dt className="kicker">Adresa</dt>
             <dd>
               <a href="#kontakt">{SITE.street}</a>
               <span className="mt-0.5 block text-xs font-normal tracking-normal text-paper/65">{SITE.city}</span>
             </dd>
           </div>
-          <div>
+          <div className="fade-up" style={{ transitionDelay: "0.42s" }}>
             <dt className="kicker">Provoz</dt>
             <dd>
               {hours[0].time}
@@ -56,7 +48,7 @@ export function Hero() {
               </span>
             </dd>
           </div>
-          <div>
+          <div className="fade-up" style={{ transitionDelay: "0.5s" }}>
             <dt className="kicker">Kontakt</dt>
             <dd>
               <a href={SITE.phoneHref}>{SITE.phoneDisplay}</a>
@@ -66,7 +58,7 @@ export function Hero() {
             </dd>
           </div>
         </dl>
-        <div className="fade-up mt-8 flex flex-col gap-2 sm:flex-row" style={{ transitionDelay: "0.28s" }}>
+        <div className="fade-up mt-8 flex flex-col gap-2 sm:flex-row" style={{ transitionDelay: "0.6s" }}>
           <a href={SITE.phoneHref} className="btn btn-fill">
             Objednat servis
           </a>

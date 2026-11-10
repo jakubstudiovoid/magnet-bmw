@@ -157,12 +157,19 @@ export function renderInstallPageHtml(template, { host, url } = {}) {
     .replaceAll("{{APP_URL}}", escapeHtml(stripInstallParams(url)));
 }
 
-export function renderWebManifest(hostHeader) {
-  const name = appNameFromHost(hostHeader);
+/**
+ * @param {string} [hostHeader]
+ * @param {string} [nameOverride]
+ */
+export function renderWebManifest(hostHeader, nameOverride = "") {
+  const fromHost = appNameFromHost(hostHeader);
+  const fallback = String(nameOverride ?? "").trim();
+  const name = fromHost !== DEFAULT_APP_NAME ? fromHost : fallback || fromHost;
+  const short = name.split("—")[0].trim() || name;
   return JSON.stringify(
     {
       name,
-      short_name: name,
+      short_name: short,
       id: "/",
       start_url: "/",
       scope: "/",
@@ -355,6 +362,12 @@ export function grokOgHeadTags({
   const description = String(site.description ?? "").trim();
   if (description) {
     tags.push(`<meta property="og:description" content="${escapeHtml(description)}">`);
+    tags.push(`<meta name="twitter:description" content="${escapeHtml(description)}">`);
+  }
+  tags.push(`<meta name="twitter:title" content="${escapeHtml(title)}">`);
+  if (publicHost && String(site.type ?? "").toLowerCase() !== "x:game") {
+    tags.push(`<meta property="og:url" content="https://${escapeHtml(publicHost)}/">`);
+    tags.push(`<meta property="og:type" content="website">`);
   }
   if (String(site.type ?? "").toLowerCase() === "x:game") {
     tags.push(`<meta property="og:type" content="x:game">`);
