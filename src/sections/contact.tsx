@@ -11,7 +11,7 @@ export function Contact() {
         <div className="lg:col-span-5">
           <p className="reveal kicker">Kontakt</p>
           <h2 className="reveal headline mt-4" style={{ transitionDelay: "50ms" }}>
-            Jsme v Jablonci
+            Magnet BMW
           </h2>
           <p className="reveal kicker mt-8" style={{ transitionDelay: "80ms" }}>
             Telefon
@@ -62,7 +62,7 @@ export function Contact() {
           </div>
         </div>
         <div className="grid gap-5 lg:col-span-7">
-          <figure className="wipe">
+          <figure className="wipe wipe-late">
             <Photo
               name="entrance"
               width={1800}

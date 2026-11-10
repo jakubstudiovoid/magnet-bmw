@@ -41,7 +41,13 @@ export function SiteEffects() {
       },
       { threshold: 0.16, rootMargin: "0px 0px -8% 0px" },
     );
-    nodes.forEach((node) => io.observe(node));
+    let paint = 0;
+    let reveal = 0;
+    paint = requestAnimationFrame(() => {
+      reveal = requestAnimationFrame(() => {
+        nodes.forEach((node) => io.observe(node));
+      });
+    });
 
     const onClick = (event: MouseEvent) => {
       const link = (event.target as HTMLElement | null)?.closest("a[href^='#']");
@@ -65,6 +71,8 @@ export function SiteEffects() {
 
     return () => {
       cancelAnimationFrame(frame);
+      cancelAnimationFrame(paint);
+      cancelAnimationFrame(reveal);
       lenis.destroy();
       io.disconnect();
       document.removeEventListener("click", onClick);

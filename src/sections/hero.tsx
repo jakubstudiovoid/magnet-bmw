@@ -19,7 +19,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-linear-to-r from-ink via-ink/75 to-transparent" />
       </div>
       <div className="shell relative z-10 pt-28 pb-10 md:pt-32 md:pb-12">
-        <p className="fade-up kicker" style={{ animationDelay: "0.1s" }}>
+        <p className="fade-up kicker" style={{ transitionDelay: "0.05s" }}>
           Autoservis · {SITE.city}
         </p>
         <h1 className="display mt-4">
@@ -34,7 +34,7 @@ export function Hero() {
             </span>
           </span>
         </h1>
-        <p className="fade-up mt-6 max-w-sm text-base text-paper/80 md:text-lg" style={{ animationDelay: "0.4s" }}>
+        <p className="fade-up mt-6 max-w-sm text-base text-paper/80 md:text-lg" style={{ transitionDelay: "0.16s" }}>
           {SITE.claim}
         </p>
         <dl className="meta-rail">
@@ -66,7 +66,7 @@ export function Hero() {
             </dd>
           </div>
         </dl>
-        <div className="fade-up mt-8 flex flex-col gap-2 sm:flex-row" style={{ animationDelay: "0.5s" }}>
+        <div className="fade-up mt-8 flex flex-col gap-2 sm:flex-row" style={{ transitionDelay: "0.28s" }}>
           <a href={SITE.phoneHref} className="btn btn-fill">
             Objednat servis
           </a>

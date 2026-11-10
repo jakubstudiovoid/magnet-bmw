@@ -287,12 +287,12 @@
     inset: 0;
   }
 
-  .photo:not(.hero-photo) .photo-img {
-    filter: grayscale(1) contrast(1.18);
-    transition: filter 1s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
   @media (hover: hover) and (pointer: fine) {
+    .photo:not(.hero-photo) .photo-img {
+      filter: grayscale(1) contrast(1.18);
+      transition: filter 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
     .photo:not(.hero-photo):hover .photo-img,
     :hover > .photo:not(.hero-photo) .photo-img,
     :focus-within > .photo:not(.hero-photo) .photo-img {
@@ -471,25 +471,28 @@
     transition: color 0.7s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  @media (hover: hover) and (pointer: fine) {
-    .service-row:hover .service-icon {
-      color: var(--color-accent);
-    }
+  .service-row:hover .service-icon,
+  .service-row:active .service-icon {
+    color: var(--color-accent);
   }
 
-  .js .reveal,
-  .js .fade-up {
+  .service-row:active .service-icon {
+    transition-duration: 0.2s;
+  }
+
+  .js .reveal:not(.is-in),
+  .js .fade-up:not(.is-in) {
     opacity: 0;
     transform: translateY(16px);
-    transition:
-      opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-      transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .js .reveal.is-in,
   .js .fade-up.is-in {
     opacity: 1;
     transform: none;
+    transition:
+      opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .meta-rail {
@@ -558,7 +561,27 @@
 
   .js .wipe.is-in {
     opacity: 1;
-    transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1) 0.85s;
+    transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .split .copy .reveal.is-in {
+    transition-delay: calc(var(--i, 0) * 70ms);
+  }
+
+  @media (min-width: 768px) {
+    .split .wipe.is-in {
+      transition-delay: 0s;
+    }
+
+    .split .copy .reveal.is-in {
+      transition-delay: calc(180ms + var(--i, 0) * 80ms);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .wipe-late.is-in {
+      transition-delay: 0.24s;
+    }
   }
 
   .mask-in,
