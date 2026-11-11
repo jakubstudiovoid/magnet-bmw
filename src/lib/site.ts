@@ -19,7 +19,7 @@ export const SITE = {
 } as const;
 
 export const aboutParagraphs = [
-  "Specializujeme se na komplexní servis a údržbu vozů BMW. S dlouholetými zkušenostmi nabízíme pravidelnou údržbu i náročnější opravy a vždy dbáme na nejvyšší standardy kvality a bezpečnosti.",
+  "Specializujeme se na komplexní servis a údržbu vozů BMW, opravíme ale i auta jiných značek. S dlouholetými zkušenostmi nabízíme pravidelnou údržbu i náročnější opravy a vždy dbáme na nejvyšší standardy kvality a bezpečnosti.",
   "Pokud hledáte servis, který rozumí vašemu vozu, navštivte nás v Jablonci nad Nisou. Váš automobil bude v těch nejlepších rukou.",
 ] as const;
 
