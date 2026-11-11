@@ -26,7 +26,7 @@ export const aboutParagraphs = [
 export const services = [
   {
     title: "Originální diagnostika BMW",
-    text: "Diagnostika vozu tak, jak k ní patří originální výbava BMW.",
+    text: "Vůz diagnostikujeme originální výbavou BMW.",
     icon: "scan",
   },
   {
